@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="js/models/Model.js"></script>
+
+    <script src="js/views/bookshelfView.js" type="text/jsx"></script>
+    <script src="js/views/promiseNoData.js" type="text/jsx"></script>
+    <script src="js/views/searchView.js" type="text/jsx"></script>
+    <script src="js/views/shoppingcartView.js" type="text/jsx"></script>
+    <script src="js/views/sidebarView.js" type="text/jsx"></script>
+    <script src="js/views/wishlistView.js" type="text/jsx"></script>
+
+    <script src="vuejs/bookshelfPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/searchPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/shoppingcartPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/showPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+    <script src="vuejs/wishlistPresenter.js" type="text/jsx"></script>
+
+    <script src="js/apiConfig.js"></script>
+    <script src="js/app.js" type="text/jsx"></script>
+    <script src="js/apiSource.js"></script>
+    <script src="js/firebaseConfig.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script>
+      const React = { createElement: Vue.h };
+    </script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <script type="text/jsx">
+    const myModel = new Model();
+
+    const TopLevelModel = {
+      data() {
+        return { model : myModel };
+      },
+      render() {
+        return ( <App model={this.model} /> );
+      }
+    }
+
+    Vue.render(<TopLevelModel />, document.getElementById("app"));
+  </script>
+</html>
